@@ -1,0 +1,19 @@
+# Test places and builds
+/*.rbxl
+/*.rbxlx
+/*.rbxm
+/*.rbxmx
+
+# Selene Roblox configuration
+roblox.toml
+
+# LuaCov output location
+/luacov.*
+
+# MkDocs build output
+/site/
+
+# Rotriever
+rotriever.lock
+Packages/*
+!Packages/.robloxrc
