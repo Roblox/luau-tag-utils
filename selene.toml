@@ -1,0 +1,5 @@
+std = "roblox+testez"
+
+[config]
+unused_variable = { ignore_pattern = "^_" }
+shadowing = { ignore_pattern = "^_" }
