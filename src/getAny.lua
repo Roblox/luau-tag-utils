@@ -1,19 +1,26 @@
 local CollectionService = game:GetService("CollectionService")
 
-local root = script.Parent
-local Packages = root.Parent
-local Llama = require(Packages.Llama)
-local mapTagToInstanceSet = require(root.mapTagToInstanceSet)
+local function getAny(...: string): { Instance }
+	local totalTags = select("#", ...)
+	assert(totalTags ~= 0, "getAny should receive at least one tag")
 
-local function getAll(...: string): { Instance }
-	local tags = { ... }
-
-	if #tags == 1 then
-		return CollectionService:GetTagged(tags[1])
+	if totalTags == 1 then
+		local firstTag = ...
+		return CollectionService:GetTagged(firstTag)
 	else
-		local sets = Llama.List.map(tags, mapTagToInstanceSet)
-		return Llama.Dictionary.keys(Llama.Set.union(unpack(sets)))
+		local inserted = {}
+		local instances = {}
+		for i = 1, totalTags do
+			local tag = select(i, ...)
+			for _, taggedInstance in ipairs(CollectionService:GetTagged(tag)) do
+				if not inserted[taggedInstance] then
+					inserted[taggedInstance] = true
+					table.insert(instances, taggedInstance)
+				end
+			end
+		end
+		return instances
 	end
 end
 
-return getAll
+return getAny

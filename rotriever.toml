@@ -8,8 +8,5 @@ content_root = "src"
 version = "0.1.0"
 files = ["*", "!**/__tests__/**"]
 
-[dependencies]
-Llama = { git = "https://github.com/freddylist/llama", rev = "master" }
-
 [dev_dependencies]
 JestGlobals = "github.com/roblox/jest-roblox@2.2.0"

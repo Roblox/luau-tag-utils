@@ -53,4 +53,15 @@ return function()
 		})
 		expect(getAll("animated")).toEqual({})
 	end)
+
+	it(
+		"returns an empty list if there is no instances tagged with `button` and `animated`",
+		function()
+			instances, cleanInstances = InstanceSetup.create({
+				button = { "button" },
+				animated = { "animated" },
+			})
+			expect(getAll("button", "animated")).toEqual({})
+		end
+	)
 end
