@@ -1,10 +1,6 @@
 local CollectionService = game:GetService("CollectionService")
 local Workspace = game:GetService("Workspace")
 
-local root = script.Parent.Parent
-local Packages = root.Parent
-local Llama = require(Packages.Llama)
-
 local function createInstance(tags, name)
 	local object = Instance.new("Folder")
 	object.Name = name
@@ -20,8 +16,10 @@ local InstanceSetup = {}
 function InstanceSetup.create(
 	config: { [string]: { string } }
 ): ({ [string]: Instance }, () -> ())
-	local instances = Llama.Dictionary.map(config, createInstance)
-
+	local instances = {}
+	for name, tags in pairs(config) do
+		instances[name] = createInstance(tags, name)
+	end
 	return instances,
 		function()
 			for _, instance in pairs(instances) do
