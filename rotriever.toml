@@ -3,7 +3,7 @@ name = "TagUtils"
 authors = [
 	"Olivier Trepanier <otrepanier@roblox.com>"
 ]
-license = "Apache-2.0"
+license = "MIT"
 content_root = "src"
 version = "0.1.0"
 files = ["*", "!**/__tests__/**"]
