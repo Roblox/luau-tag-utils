@@ -1,5 +1,6 @@
 [tools]
 rojo = { source = "rojo-rbx/rojo", version = "7.0.0" }
-selene = { source = "Kampfkarren/selene", version = "0.16" }
-stylua = { source = "JohnnyMorganz/StyLua", version = "0.12.3" }
-rotrieve = { source = "roblox/rotriever", version = "0.5.1" }
+selene = { source = "kampfkarren/selene", version = "0.24.0" }
+stylua = { source = "JohnnyMorganz/StyLua", version = "0.16.0" }
+rotrieve = { source = "Roblox/rotriever", version = "0.5.12" }
+rbx-aged-cli = { source = "Roblox/rbx-aged-tool", version = "5.x.x" }
